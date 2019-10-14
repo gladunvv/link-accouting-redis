@@ -8,26 +8,8 @@ import time
 from redis import Redis
 import redis
 
-class RedisTest(unittest.TestCase):
-    redis = None
-    redis_process = None
-    PORT = 6370
 
-    @classmethod
-    def setUpClass(cls):
-        # print("Creating redis instance on port {0}".format(cls.PORT))
-        # cls.redis_process = subprocess.Popen(
-        #     ['redis-server.exe', '--port', str(cls.PORT)])
-        # time.sleep(0.1)
-        cls.redis = Redis(port=cls.PORT)
-
-    # @classmethod
-    # def tearDownClass(cls):
-        # print "Terminating redis instance on port {0}".format(cls.PORT)
-        # cls.redis_process.terminate()
-        # cls.redis_process.wait()
-
-class BasicTests(RedisTest):
+class BasicTests(unittest.TestCase):
 
     def setUp(self):
         app.config['TESTING'] = True
